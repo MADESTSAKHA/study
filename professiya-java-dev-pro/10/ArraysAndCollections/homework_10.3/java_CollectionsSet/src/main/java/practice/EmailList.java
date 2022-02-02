@@ -1,6 +1,7 @@
 package practice;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -33,6 +34,13 @@ public class EmailList {
 
     public List<String> getSortedEmails() {
         // TODO: возвращается сортированный список электронных адресов в алфавитном порядке
-        return new ArrayList<>(emailList);
+        List<String> sortEmails = new ArrayList<>(emailList);
+        Collections.sort(sortEmails);
+        return sortEmails;
     }
 }
+
+//    public List<String> getSortedEmails() {
+//        // TODO: возвращается сортированный список электронных адресов в алфавитном порядке
+//        return new ArrayList<>(emailList);
+//    }
