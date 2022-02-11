@@ -2,13 +2,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegularExpressions {
-            //Регулярные выражения
-            static void regularExpressions() {
+    //Регулярные выражения
+    static void regularExpressions() {
         System.out.println("==============Проверка соответствия строк===============");
         String number = "Т860ЕМ14";
 
         String letterList = "[АВЕКМНОРСТУХВ]";
-        String regex = letterList + "[0-9]{3}" +letterList + "{2}[0-9]{2,3}";
+        String regex = letterList + "[0-9]{3}" + letterList + "{2}[0-9]{2,3}";
         System.out.println(number.matches(regex));
 
         System.out.println("\n==============Поиск соответствий в строке===============");
@@ -24,14 +24,14 @@ public class RegularExpressions {
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            System.out.println(text.substring(start,end));
+            System.out.println(text.substring(start, end));
         }
 
         System.out.println("\n=============Разбиение строки на фрагменты==============");
         String text2 = "I      know something    about                it";
         String[] words = text2.split("\\s+");
-        for (int i = 0; i < words.length; i++) {
-            System.out.println(words[i]);
+        for (String word : words) {
+            System.out.println(word);
         }
 
         System.out.println("\n=======Замена в строке одних фрагментов на другие=======");
@@ -47,6 +47,7 @@ public class RegularExpressions {
         System.out.println(formatPhoneNumber(phone4));
         System.out.println(formatPhoneNumber(phone5));
     }
+
     public static String formatPhoneNumber(String phone) {
         String regex = "[^0-9]";
         String regex2 = phone.replaceAll(regex, "");

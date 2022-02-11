@@ -62,6 +62,9 @@ public class Main {
 //        System.out.println("\n<<<================Регулярные выражения (Поиск и исключения не нужного)=====================>>>\n");
 //        RegexMail.regexMail();
 
+//        HashMap2.hashMap();
+
+//        RegularExpressions.regularExpressions();
         Delete.delete();
     }
 }
