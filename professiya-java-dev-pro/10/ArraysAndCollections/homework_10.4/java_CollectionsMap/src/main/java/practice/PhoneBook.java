@@ -17,7 +17,7 @@ public class PhoneBook {
             } else if (!phoneBook.containsKey(name) && getByPhone(phone).equals(phone)) {
                 phoneBook.remove(getANameOnThePhone(phone), phone);
                 phoneBook.put(name, phone);
-            } else if (phoneBook.containsKey(name) && !getByPhone(phone).equals(phone)) {
+            } else if (phoneBook.containsKey(name) && getByPhone(phone).isEmpty()) {
                 String firstNumber = String.valueOf(getPhoneByName(name));
                 phones.add(firstNumber + ", " + phone);
                 phoneBook.put(name, String.valueOf(phones));
@@ -25,8 +25,7 @@ public class PhoneBook {
         }
     }
 
-    public String getByPhone(String phone) {
-        // Вывод есть ли такой телефон!
+    public String getByPhone(String phone) {                                                           // по № выдает: №
         String result = "";
         for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
             if (entry.getValue().contains(phone)) {
@@ -37,8 +36,7 @@ public class PhoneBook {
         return result;
     }
 
-    public String getANameOnThePhone(String phone) {
-        // Вывод есть ли Имя по № телефона!
+    public String getANameOnThePhone(String phone) {                                                 // по № выдает: ИМЯ
         String result = "";
         for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
             if (entry.getValue().contains(phone)) {
@@ -48,19 +46,27 @@ public class PhoneBook {
         return result;
     }
 
-    public Set<String> getPhoneByName(String name) {
-        // Вывод Телефона по Имени
-        // если контакт не найден - вернуть пустой TreeSet
+    public String getPhoneByName(String name) {                                                    // по ИМЕНИ выдает: №
         String result = "";
         for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
             if (entry.getKey().contains(name)) {
                 result = entry.getValue().replaceAll("\\[|\\]", "");
             }
         }
-        return Collections.singleton(result);
+        return result;
     }
 
-    public String getContactByPhone(String phone) {
+    public String getNameByName(String name) {                                                   // по ИМЕНИ выдает: ИМЯ
+        String result = "";
+        for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
+            if (entry.getKey().contains(name)) {
+                result = entry.getKey().replaceAll("\\[|\\]","");
+            }
+        }
+        return result;
+    }
+
+    public String getContactByPhone(String phone) {                                              // по № выдает: ИМЯ и №
         // формат одного контакта "Имя - Телефон"
         // если контакт не найдены - вернуть пустую строку
         String key = "";
@@ -76,7 +82,7 @@ public class PhoneBook {
         return result;
     }
 
-    public Set<String> getContactByName(String name) {
+    public Set<String> getContactByName(String name) {                                       // по ИМЕНИ выдает: ИМЯ и №
         // формат одного контакта "Имя - Телефон"
         // если контакт не найден - вернуть пустой TreeSet
         String key = "";
@@ -92,7 +98,7 @@ public class PhoneBook {
         return Collections.singleton(result);
     }
 
-    public Set<String> getAllContacts() {
+    public Set<String> getAllContacts() {                                                                     // All nah
         // формат одного контакта "Имя - Телефон"
         // если контактов нет в телефонной книге - вернуть пустой TreeSet
         TreeSet<String> treeSetAll = new TreeSet<>();
