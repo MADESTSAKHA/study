@@ -30,7 +30,6 @@ public class PhoneBook {
         for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
             if (entry.getValue().contains(phone)) {
                 result = entry.getValue().replaceAll("\\[|\\]", "");
-                ;
             }
         }
         return result;
@@ -69,8 +68,8 @@ public class PhoneBook {
     public String getContactByPhone(String phone) {                                              // по № выдает: ИМЯ и №
         // формат одного контакта "Имя - Телефон"
         // если контакт не найдены - вернуть пустую строку
-        String key = "";
-        String value = "";
+        String key;
+        String value;
         String result = "";
         for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
             if (entry.getValue().contains(phone)) {
@@ -85,8 +84,8 @@ public class PhoneBook {
     public Set<String> getContactByName(String name) {                                       // по ИМЕНИ выдает: ИМЯ и №
         // формат одного контакта "Имя - Телефон"
         // если контакт не найден - вернуть пустой TreeSet
-        String key = "";
-        String value = "";
+        String key;
+        String value;
         String result = "";
         for (Map.Entry<String, String> entry : phoneBook.entrySet()) {
             if (entry.getKey().contains(name)) {

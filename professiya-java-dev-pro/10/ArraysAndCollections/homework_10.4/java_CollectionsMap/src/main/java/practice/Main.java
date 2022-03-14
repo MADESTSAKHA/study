@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
     public static final String NAME_REGEX = "^[a-zA-Zа-яА-Я]+$";
-    public static final String PHONE_REGEX = "^[+7,8,9]\\d{9,11}$";
+    public static final String PHONE_REGEX = "^[+789]\\d{9,11}$";
     public static PhoneBook phoneBook = new PhoneBook();
     public static Scanner scanner = new Scanner(System.in);
 
