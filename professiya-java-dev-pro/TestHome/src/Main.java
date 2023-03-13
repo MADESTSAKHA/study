@@ -1,15 +1,39 @@
-import lighting.LightingDevice;
-import java.util.Comparator;
-import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
+    static List<String> places = new ArrayList<>();
+
+    // заполнение данными
+    public static List getPlaces() {
+
+        // добавление страны и города
+        places.add("Nepal, Kathmandu");
+        places.add("Nepal, Pokhara");
+        places.add("India, Delhi");
+        places.add("USA, New York");
+        places.add("Africa, Nigeria");
+
+        return places;
+    }
+
     public static void main(String[] args) {
 
-        System.out.println("\n<<<=================================Replace===============================================>>>\n");
-        Replace.replace();
+        List<String> myPlaces = getPlaces();
+        System.out.println("Places from Nepal:");
+
+        // Фильтрация городов
+        myPlaces.stream()
+                .filter((p) -> p.startsWith("Nepal"))
+                .map((p) -> p.toUpperCase())
+                .sorted()
+                .forEach((p) -> System.out.println(p));
+
     }
 }
 
+//        System.out.println("\n<<<=================================Replace===============================================>>>\n");
+//        Replace.replace();
 
 //        System.out.println("\n<<<=================================RandomS===============================================>>>\n");
 //        RandomS.randomS();
